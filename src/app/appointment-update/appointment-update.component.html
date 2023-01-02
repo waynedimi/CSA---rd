@@ -1,0 +1,49 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Update Appointment</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/appointment" class="btn btn-success back"
+              ><i class="fas fa-arrow-circle-left"></i> Back</a
+            >
+          </div>
+        </div>
+      </div>
+      <form #appointmentForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_patientName" class="p-t-b-10"
+                >Patient Name Name<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_patientName"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._patientName"
+                name="_patientName"
+                #_patientName="ngModel"
+              />
+              <div
+                *ngIf="_patientName.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_patientName.errors?.['required']">
+                  Patient Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -36,8 +36,288 @@
                 *ngIf="_patientName.errors && isSubmitted"
                 class="alert alert-danger validationError"
               >
-                <div [hidden]="!_patientName.errors?.['required']">
+                <div [hidden]="!_patientName.errors['required']">
                   Patient Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_animalType" class="p-t-b-10"
+                >Animal Type<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_animalType"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._animalType"
+                name="_animalType"
+                #_animalType="ngModel"
+              />
+              <div
+                *ngIf="_animalType.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_animalType.errors['required']">
+                  Animal Type is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_ownerIdCardNumber" class="p-t-b-10"
+                >Owner Id Card<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_ownerIdCardNumber"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._ownerIdCardNumber"
+                name="_ownerIdCardNumber"
+                #_ownerIdCardNumber="ngModel"
+              />
+              <div
+                *ngIf="_ownerIdCardNumber.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_ownerIdCardNumber.errors['required']">
+                  Owner Id card is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_ownerName" class="p-t-b-10"
+                >Owner Name<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_ownerName"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._ownerName"
+                name="_ownerName"
+                #_ownerName="ngModel"
+              />
+              <div
+                *ngIf="_ownerName.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_ownerName.errors['required']">
+                  Owner Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_ownerSurname" class="p-t-b-10"
+                >Owner Surname<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_ownerSurname"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._ownerSurname"
+                name="_ownerSurname"
+                #_ownerSurname="ngModel"
+              />
+              <div
+                *ngIf="_ownerSurname.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_ownerSurname.errors['required']">
+                  Owner Surname is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_ownerContactNumber" class="p-t-b-10"
+                >Owner Contact Number<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_ownerContactNumber"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._ownerContactNumber"
+                name="_ownerContactNumber"
+                #_ownerContactNumber="ngModel"
+              />
+              <div
+                *ngIf="_ownerContactNumber.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_ownerContactNumber.errors['required']">
+                  Owner Contact Number is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_appointmentDate" class="p-t-b-10"
+                >Date<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_appointmentDate"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._appointmentDate"
+                name="_appointmentDate"
+                #_appointmentDate="ngModel"
+              />
+              <div
+                *ngIf="_appointmentDate.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_appointmentDate.errors['required']">
+                  Date is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_appointmentTime" class="p-t-b-10"
+                >Appointment Time<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_appointmentTime"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._appointmentTime"
+                name="_appointmentTime"
+                #_appointmentTime="ngModel"
+              />
+              <div
+                *ngIf="_appointmentTime.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_appointmentTime.errors['required']">
+                  Time is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_appointmentDuration" class="p-t-b-10"
+                >Appointment Duration<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_appointmentDuration"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._appointmentDuration"
+                name="_appointmentDuration"
+                #_appointmentDuration="ngModel"
+              />
+              <div
+                *ngIf="_appointmentDuration.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_appointmentDuration.errors['required']">
+                  Duration is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_reasonForAppointment" class="p-t-b-10"
+                >Appointment Reason<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_reasonForAppointment"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._reasonForAppointment"
+                name="_reasonForAppointment"
+                #_reasonForAppointment="ngModel"
+              />
+              <div
+                *ngIf="_reasonForAppointment.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_reasonForAppointment.errors['required']">
+                  Reason is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="_vetNotes" class="p-t-b-10"
+                >Vet Notes<span class="requiredStar">*</span></label
+              >
+            </div>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="_vetNotes"
+                required
+                maxlength="255"
+                [(ngModel)]="editAppointmentForm._vetNotes"
+                name="_vetNotes"
+                #_vetNotes="ngModel"
+              />
+              <div
+                *ngIf="_vetNotes.errors && isSubmitted"
+                class="alert alert-danger validationError"
+              >
+                <div [hidden]="!_vetNotes.errors['required']">
+                  VetNotes is required
                 </div>
               </div>
             </div>

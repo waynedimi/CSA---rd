@@ -1,7 +1,6 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
@@ -12,6 +11,8 @@ import { AppointmentGuardService } from './services/appointment-gaurd.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppointmentUpdateComponent } from './appointment-update/appointment-update.component';
 import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
+import { Pipe } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,10 @@ import { AppointmentAddComponent } from './appointment-add/appointment-add.compo
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
+    BrowserModule,
+    ReactiveFormsModule,
   ],
-  providers: [AppointmentService, AppointmentGuardService],
+  providers: [AppointmentService, AppointmentGuardService, Pipe, DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [AppointmentUpdateComponent],
 })

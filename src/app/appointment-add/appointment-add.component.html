@@ -1,1 +1,174 @@
-<p>appointment-add works!</p>
+<br />
+<!-- <div
+  *ngif="message"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Success!</strong>Appointment Updated
+  <button
+    (click)="removeMessage()"
+    type="button"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  >
+    X
+  </button>
+</div> -->
+<form [formGroup]="addAppointment" (ngSubmit)="AddData()">
+  <div class="row mb-4">
+    <div class="col">
+      <h3>Add Appointment</h3>
+    </div>
+    <div class="col d-flex flex-row-reverse">
+      <button type="submit" class="btn w-25 p-4 btn-primary">
+        Add Appointment
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="mb-3">
+    <label class="form-label">Patient Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Patient Name"
+      formControlName="patientName"
+    />
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <label class="form-label">First name</label>
+      <div class="form-outline">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Owner Name"
+          formControlName="ownerName"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Last name</label>
+      <div class="form-outline">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Owner Name"
+          formControlName="ownerSurname"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Animal Type</label>
+    <select
+      formControlName="animalType"
+      class="form-select"
+      id="animalType"
+      required
+    >
+      <option>Dog</option>
+      <option>Cat</option>
+      <option>Rabbit</option>
+      <option>Bird</option>
+      <option>Reptile</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Id Card</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Owner Id Card"
+      formControlName="ownerIdCardNumber"
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Contact Number</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Contact Number"
+      formControlName="ownerContactNumber"
+    />
+  </div>
+  <div class="row mb-4">
+    <div class="col">
+      <label class="form-label">Appointment Date</label>
+      <div class="form-outline">
+        <input
+          type="date"
+          class="form-control"
+          placeholder="Appointment Date"
+          formControlName="appointmentDate"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Appointment Time</label>
+      <div class="form-outline">
+        <input
+          type="time"
+          class="form-control"
+          placeholder="Appointment Time"
+          formControlName="appointmentTime"
+          value="appointmentTime"
+          required
+        />
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Appointment Duration(Mins)</label>
+      <div class="form-outline">
+        <!-- <select
+          type="number"
+          class="form-select"
+          placeholder="Appointment Duration"
+          formControlName="appointmentDuration"
+          value="appointmentDuration"
+        >\
+          <option>10</option>
+          <option>15</option>
+          <option>30</option>
+        </select> -->
+
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Appointment Duration"
+          formControlName="appointmentDuration"
+          value="appointmentDuration"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Reason For Appointment</label>
+    <textarea
+      rows="4"
+      cols="50"
+      class="form-control"
+      placeholder="Reason For Appointment"
+      formControlName="reasonForAppointment"
+      value="reasonForAppointment"
+    >
+Enter Text Here</textarea
+    >
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Vet Notes</label>
+    <textarea
+      rows="4"
+      cols="50"
+      class="form-control"
+      placeholder="Vet For Appointment"
+      formControlName="vetNotes"
+      value="vetNotes"
+    >
+Enter Text Here</textarea
+    >
+  </div>
+</form>

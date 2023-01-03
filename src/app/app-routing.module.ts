@@ -1,3 +1,4 @@
+import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
 import { AppointmentUpdateComponent } from './appointment-update/appointment-update.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,8 +9,9 @@ import { AppointmentDetailComponent } from './appointment-detail/appointment-det
 
 const routes: Route[] = [
   { path: 'appointment', component: AppointmentListComponent },
+  { path: 'add', component: AppointmentAddComponent },
   {
-    path: 'EditAppointment/:apointmentId',
+    path: 'edit/:id',
     component: AppointmentUpdateComponent,
   },
   { path: 'home', component: HomeComponent },

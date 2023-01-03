@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Appointment } from '../dto/appointment.dto';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AppointmentService {
   endpoint: string = 'http://localhost:8080/appointment';
 
@@ -23,20 +25,11 @@ export class AppointmentService {
     return this.httpClient.get<Appointment>(this.endpoint + '/' + id);
   }
 
-  addAppointment(appointment: Appointment): Observable<Appointment> {
-    return this.httpClient.post<Appointment>(
-      this.endpoint,
-      appointment,
-      this.httpHeader
-    );
+  updateAppointment(id: number, data: any) {
+    return this.httpClient.put(`${this.endpoint}/${id}`, data);
   }
-
-  updateAppointment(appointment: any): Observable<Appointment> {
-    return this.httpClient.put<Appointment>(
-      this.endpoint,
-      appointment,
-      this.httpHeader
-    );
+  addAppointment(data: any) {
+    return this.httpClient.post(this.endpoint, data);
   }
 
   deleteAppointment(id: number): Observable<any> {

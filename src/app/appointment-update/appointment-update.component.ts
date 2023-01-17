@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Appointment } from '../dto/appointment.dto';
 import { AppointmentService } from '../services/appointment.service';
 
 @Component({

@@ -14,8 +14,9 @@ const routes: Route[] = [
     path: 'edit/:id',
     component: AppointmentUpdateComponent,
   },
+  { path: 'detail/:id', component: AppointmentDetailComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/apointment', pathMatch: 'full' },
 ];
 
 @NgModule({

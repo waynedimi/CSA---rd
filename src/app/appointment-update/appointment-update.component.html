@@ -1,37 +1,35 @@
 <br />
-<!-- <div
-  *ngif="message"
-  class="alert alert-success alert-dismissible fade show"
-  role="alert"
->
-  <strong>Success!</strong>Appointment Updated
-  <button
-    (click)="removeMessage()"
-    type="button"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  >
-    X
-  </button>
-</div> -->
 <form [formGroup]="editAppointment" (ngSubmit)="UpdateData()">
   <div class="row mb-4">
     <div class="col">
-      <h3>Edit Appointment</h3>
+      <h3>Update Appointment</h3>
     </div>
     <div class="col d-flex flex-row-reverse">
-      <button type="submit" class="btn w-25 p-4 btn-primary">Update</button>
+      <button type="submit" class="btn w-25 p-4 btn-primary">
+        Update Appointment
+      </button>
     </div>
   </div>
   <br />
-  <div class="mb-3">
+  <div class="form-group mb-3">
     <label class="form-label">Patient Name</label>
     <input
       type="text"
       class="form-control"
-      placeholder="Patient Name"
       formControlName="patientName"
+      [ngClass]="{
+        'is-invalid': submitted && editAppointment.controls.patientName.errors
+      }"
+      placeholder="Patient Name"
     />
+    <p
+      *ngIf="
+        submitted && editAppointment.controls.patientName.hasError('required')
+      "
+      class="text-danger"
+    >
+      Required Patient Name
+    </p>
   </div>
 
   <div class="row mb-4">
@@ -41,9 +39,20 @@
         <input
           type="text"
           class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && editAppointment.controls.ownerName.errors
+          }"
           placeholder="Owner Name"
           formControlName="ownerName"
         />
+        <p
+          *ngIf="
+            submitted && editAppointment.controls.ownerName.hasError('required')
+          "
+          class="text-danger"
+        >
+          Required Owner Name
+        </p>
       </div>
     </div>
     <div class="col">
@@ -52,39 +61,114 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Owner Name"
+          [ngClass]="{
+            'is-invalid':
+              submitted && editAppointment.controls.ownerSurname.errors
+          }"
+          placeholder="Owner Surname"
           formControlName="ownerSurname"
         />
+        <p
+          *ngIf="
+            submitted &&
+            editAppointment.controls.ownerSurname.hasError('required')
+          "
+          class="text-danger"
+        >
+          Required Owner Surname
+        </p>
       </div>
     </div>
   </div>
 
   <div class="mb-3">
     <label class="form-label">Animal Type</label>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Animal Type"
+    <select
       formControlName="animalType"
-    />
+      class="form-select"
+      [ngClass]="{
+        'is-invalid': submitted && editAppointment.controls.animalType.errors
+      }"
+      id="animalType"
+      required
+    >
+      <option>Dog</option>
+      <option>Cat</option>
+      <option>Rabbit</option>
+      <option>Bird</option>
+      <option>Reptile</option>
+    </select>
+    <p
+      *ngIf="
+        submitted && editAppointment.controls.animalType.hasError('required')
+      "
+      class="text-danger"
+    >
+      Required Animal Type
+    </p>
   </div>
+
   <div class="mb-3">
     <label class="form-label">Id Card</label>
     <input
       type="text"
       class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          submitted && editAppointment.controls.ownerIdCardNumber.errors
+      }"
       placeholder="Owner Id Card"
       formControlName="ownerIdCardNumber"
     />
+    <p
+      *ngIf="
+        submitted &&
+        editAppointment.controls.ownerIdCardNumber.hasError('required')
+      "
+      class="text-danger"
+    >
+      Required Id Card
+    </p>
   </div>
   <div class="mb-3">
     <label class="form-label">Contact Number</label>
     <input
       type="text"
       class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          submitted && editAppointment.controls.ownerContactNumber.errors
+      }"
       placeholder="Contact Number"
       formControlName="ownerContactNumber"
     />
+    <p
+      *ngIf="
+        submitted &&
+        editAppointment.controls.ownerContactNumber.hasError('required')
+      "
+      class="text-danger"
+    >
+      Required Contact Number
+    </p>
+    <p
+      *ngIf="
+        submitted &&
+        editAppointment.controls.ownerContactNumber.hasError('minLength')
+      "
+      class="text-danger"
+    >
+      The Number has to be 8 digits long
+    </p>
+    <p
+      *ngIf="
+        submitted &&
+        editAppointment.controls.ownerContactNumber.hasError('pattern')
+      "
+      class="text-danger"
+    >
+      Wow there Only Numbers
+    </p>
   </div>
   <div class="row mb-4">
     <div class="col">
@@ -93,9 +177,22 @@
         <input
           type="text"
           class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              submitted && editAppointment.controls.appointmentDate.errors
+          }"
           placeholder="Appointment Date"
           formControlName="appointmentDate"
         />
+        <p
+          *ngIf="
+            submitted &&
+            editAppointment.controls.appointmentDate.hasError('required')
+          "
+          class="text-danger"
+        >
+          Required Appointment Date
+        </p>
       </div>
     </div>
     <div class="col">
@@ -104,25 +201,47 @@
         <input
           type="time"
           class="form-control"
+          placeholder="Appointment Time"
+          [ngClass]="{
+            'is-invalid':
+              submitted && editAppointment.controls.appointmentTime.errors
+          }"
           formControlName="appointmentTime"
-          value="appointmentTime"
           required
         />
+        <p
+          *ngIf="
+            submitted &&
+            editAppointment.controls.appointmentTime.hasError('required')
+          "
+          class="text-danger"
+        >
+          Required Appointment Time
+        </p>
       </div>
     </div>
     <div class="col">
       <label class="form-label">Appointment Duration(Mins)</label>
       <div class="form-outline">
-        <select
-          class="form-select"
+        <input
+          type="number"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              submitted && editAppointment.controls.appointmentDuration.errors
+          }"
           placeholder="Appointment Duration"
           formControlName="appointmentDuration"
-          value="appointmentDuration"
+        />
+        <p
+          *ngIf="
+            submitted &&
+            editAppointment.controls.appointmentDuration.hasError('required')
+          "
+          class="text-danger"
         >
-          <option>10</option>
-          <option>15</option>
-          <option>30</option>
-        </select>
+          Required Appointment Duration
+        </p>
       </div>
     </div>
   </div>
@@ -133,11 +252,23 @@
       cols="50"
       class="form-control"
       placeholder="Reason For Appointment"
+      [ngClass]="{
+        'is-invalid':
+          submitted && editAppointment.controls.reasonForAppointment.errors
+      }"
       formControlName="reasonForAppointment"
-      value="reasonForAppointment"
     >
 Enter Text Here</textarea
     >
+    <p
+      *ngIf="
+        submitted &&
+        editAppointment.controls.reasonForAppointment.hasError('required')
+      "
+      class="text-danger"
+    >
+      Required Reason for appointment
+    </p>
   </div>
   <div class="mb-3">
     <label class="form-label">Vet Notes</label>
@@ -147,7 +278,6 @@ Enter Text Here</textarea
       class="form-control"
       placeholder="Vet For Appointment"
       formControlName="vetNotes"
-      value="vetNotes"
     >
 Enter Text Here</textarea
     >

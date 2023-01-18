@@ -1,5 +1,14 @@
+<div class="d-flex justify-content-around">
+  <button href="/appointment" (click)="generatePDF()" class="btn btn-info">
+    Generate PDF
+  </button>
+  <button href="/appointment" (click)="generateXLSX()" class="btn btn-info">
+    Generate XML
+  </button>
+</div>
+
 <div class="table-responsive mt-3" *ngIf="appointments?.length">
-  <table class="table">
+  <table id="appointmentTable" class="table">
     <thead>
       <tr>
         <th>Id</th>
@@ -51,6 +60,4 @@
       </tr>
     </tbody>
   </table>
-
-  <!-- <app-appointment-update></app-appointment-update> -->
 </div>

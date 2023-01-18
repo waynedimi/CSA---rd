@@ -7,7 +7,7 @@ import { Appointment } from '../dto/appointment.dto';
   providedIn: 'root',
 })
 export class AppointmentService {
-  endpoint: string = 'http://localhost:8080/appointment';
+  endpoint: string = 'https://cssna.teknologija.com/appointment';
 
   httpHeader = {
     headers: new HttpHeaders({

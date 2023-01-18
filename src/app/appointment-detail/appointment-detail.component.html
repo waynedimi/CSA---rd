@@ -1,7 +1,62 @@
-<div *ngIf="appointment !== undefined">
-  <div class="row">
-    <div class="col-12">
-      <h1>Hello , meet {{ appointment.appointmentId }}</h1>
+<h3>Appointment Details</h3>
+<div class="card card-stepper" style="border-radius: 16px">
+  <div class="card-header p-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <p class="text-muted mb-2">
+          Appointment ID:
+          <span class="fw-bold text-body">{{
+            appointment?.appointmentId
+          }}</span>
+        </p>
+        <p class="text-muted mb-0">
+          Appointment Time:
+          <span class="fw-bold text-body">{{
+            appointment?.appointmentTime
+          }}</span>
+        </p>
+        <p class="text-muted mb-0">
+          Appointment Date:
+          <span class="fw-bold text-body">{{
+            appointment?.appointmentDate
+          }}</span>
+        </p>
+        <p class="text-muted mb-0">
+          Appointment Duration:
+          <span class="fw-bold text-body"
+            >{{ appointment?.appointmentDuration }} mins</span
+          >
+        </p>
+      </div>
+      <div>
+        <button
+          class="btn btn-info"
+          routerLink="/appointment"
+          routerLinkActive="active"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-4">
+    <div class="d-flex flex-row mb-4 pb-2">
+      <div class="flex-fill">
+        <h5 class="bold">Patient Details</h5>
+        <br />
+        <p class="text-muted">Patient Name : {{ appointment?.patientName }}</p>
+        <p class="text-muted">Owner Name : {{ appointment?.ownerName }}</p>
+        <p class="text-muted">Surname Name : {{ appointment?.ownerSurname }}</p>
+        <p class="text-muted">Animal Type : {{ appointment?.animalType }}</p>
+        <p class="text-muted">Id Card : {{ appointment?.ownerIdCardNumber }}</p>
+        <p class="text-muted">
+          Contact Number : {{ appointment?.ownerContactNumber }}
+        </p>
+        <p class="text-muted">
+          Reason : {{ appointment?.reasonForAppointment }}
+        </p>
+        <p class="text-muted">Vet Notes : {{ appointment?.vetNotes }}</p>
+      </div>
     </div>
   </div>
 </div>
